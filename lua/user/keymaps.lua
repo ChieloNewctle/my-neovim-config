@@ -6,7 +6,7 @@ local term_opts = { silent = true }
 local keymap = vim.api.nvim_set_keymap
 
 --Remap space as leader key
-keymap("", "<Space>", "<Nop>", opts)
+-- keymap("", "<Space>", "<Nop>", opts)
 vim.g.mapleader = ","
 vim.g.maplocalleader = ","
 
@@ -17,6 +17,9 @@ vim.g.maplocalleader = ","
 --   visual_block_mode = "x",
 --   term_mode = "t",
 --   command_mode = "c",
+
+-- Fast saving
+keymap("n", "<leader>w", ":w!<cr>", opts)
 
 -- Normal --
 -- Better window navigation
@@ -53,8 +56,6 @@ keymap("v", "p", '"_dP', opts)
 
 -- Visual Block --
 -- Move text up and down
-keymap("x", "J", ":move '>+1<CR>gv-gv", opts)
-keymap("x", "K", ":move '<-2<CR>gv-gv", opts)
 keymap("x", "<A-j>", ":move '>+1<CR>gv-gv", opts)
 keymap("x", "<A-k>", ":move '<-2<CR>gv-gv", opts)
 
