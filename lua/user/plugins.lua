@@ -60,7 +60,6 @@ return packer.startup(function(use)
   -- snippets
   use "L3MON4D3/LuaSnip" --snippet engine
   use "rafamadriz/friendly-snippets" -- a bunch of snippets to use
->>>>>>> 2683495c3df5ee7d3682897e0d47b0facb3cedc9
 
   -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins
