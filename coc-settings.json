@@ -1,0 +1,5 @@
+{
+  "pylsp.builtin.enableInstallPylspMypy": true,
+  "pylsp.builtin.enableInstallPylsIsort": true,
+  "pylsp.builtin.enableInstallPythonLspBlack": true
+}
