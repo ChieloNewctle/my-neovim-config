@@ -113,27 +113,19 @@ keymap('o', 'ac', '<Plug>(coc-classobj-a)', opts)
 
 
 -- Mappings for CoCList
+keymap('n', '<space>b', ':<C-u>CocList buffers<CR>', opts)
 keymap('n', '<space>f', ':<C-u>CocList files<CR>', opts)
 keymap('n', '<space>g', ':<C-u>CocList grep<CR>', opts)
 keymap('n', '<space>m', ':<C-u>CocList mru<CR>', opts)
 keymap('n', '<space>t', ':<C-u>CocList tags<CR>', opts)
+keymap('n', '<space>d', ':<C-u>CocList diagnostics<CR>', opts)
+keymap('n', '<space>e', ':<C-u>CocList extensions<CR>', opts)
+keymap('n', '<space>o', ':<C-u>CocList outline<CR>', opts)
+keymap('n', '<space>s', ':<C-u>CocList -I symbols<CR>', opts)
+
+keymap('n', '<space>j', ':<C-u>CocNext<CR>', opts)
+keymap('n', '<space>k', ':<C-u>CocPrev<CR>', opts)
+keymap('n', '<space>r', ':<C-u>CocListResume<CR>', opts)
 
 -- Grep current word
 keymap('n', '<space>w', [[:exe 'CocList -I --input='.expand('<cword>').' words'<CR>]], opts)
-
--- Show all diagnostics.
-keymap('n', '<space>d', ':<C-u>CocList diagnostics<CR>', opts)
--- Manage extensions.
-keymap('n', '<space>e', ':<C-u>CocList extensions<CR>', opts)
--- Show commands.
-keymap('n', '<space>c', ':<C-u>CocList commands<CR>', opts)
--- Find symbol of current document.
-keymap('n', '<space>o', ':<C-u>CocList outline<CR>', opts)
--- Search workspace symbols.
-keymap('n', '<space>s', ':<C-u>CocList -I symbols<CR>', opts)
--- Do default action for next item.
-keymap('n', '<space>j', ':<C-u>CocNext<CR>', opts)
--- Do default action for previous item.
-keymap('n', '<space>k', ':<C-u>CocPrev<CR>', opts)
--- Resume latest coc list.
-keymap('n', '<space>p', ':<C-u>CocListResume<CR>', opts)
