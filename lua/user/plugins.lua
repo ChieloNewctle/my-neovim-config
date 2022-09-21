@@ -53,6 +53,9 @@ return packer.startup(function(use)
   -- COC
   use { 'neoclide/coc.nvim', branch = 'release' }
 
+  -- Indent-o-matic
+  use { 'Darazaki/indent-o-matic' }
+
   -- cmp plugins
   -- use 'hrsh7th/nvim-cmp' -- The completion plugin
   -- use 'hrsh7th/cmp-buffer' -- buffer completions

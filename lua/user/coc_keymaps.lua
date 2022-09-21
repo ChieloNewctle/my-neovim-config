@@ -17,11 +17,18 @@ vim.api.nvim_exec([[
     \ coc#pum#visible() ? coc#pum#prev(1) : "\<C-k>"
   inoremap <silent><expr> <Tab> 
     \ coc#pum#visible() ? coc#pum#confirm() : "\<Tab>"
-  
-  inoremap <silent><expr> <C-f> 
-    \ coc#pum#visible() ? coc#pum#scroll(1) : "\<C-f>"
-  inoremap <silent><expr> <C-b> 
-    \ coc#pum#visible() ? coc#pum#scroll(0) : "\<C-b>"
+
+  " Remap <C-f> and <C-b> for scroll float windows/popups.
+  nnoremap <silent><nowait><expr> <C-f> coc#float#has_scroll() ? coc#float#scroll(1) : "\<C-f>"
+  nnoremap <silent><nowait><expr> <C-b> coc#float#has_scroll() ? coc#float#scroll(0) : "\<C-b>"
+  vnoremap <silent><nowait><expr> <C-f> coc#float#has_scroll() ? coc#float#scroll(1) : "\<C-f>"
+  vnoremap <silent><nowait><expr> <C-b> coc#float#has_scroll() ? coc#float#scroll(0) : "\<C-b>"
+  inoremap <silent><nowait><expr> <C-f>
+    \ coc#pum#visible() ? coc#pum#scroll(1) :
+    \ coc#float#has_scroll() ? "\<c-r>=coc#float#scroll(1)\<cr>" : "\<C-f>"
+  inoremap <silent><nowait><expr> <C-b>
+    \ coc#pum#visible() ? coc#pum#scroll(0) :
+    \ coc#float#has_scroll() ? "\<c-r>=coc#float#scroll(0)\<cr>" : "\<C-b>"
 ]], true)
 
 
@@ -31,18 +38,19 @@ keymap('n', 'gD', '<Plug>(coc-type-definition)', opts)
 keymap('n', 'gi', '<Plug>(coc-implementation)', opts)
 keymap('n', 'gr', '<Plug>(coc-references)', opts)
 
-keymap('n', 'K', ':lua show_documentation()', opts)
+keymap('n', '[g', '<Plug>(coc-diagnostic-prev)', opts)
+keymap('n', ']g', '<Plug>(coc-diagnostic-next)', opts)
+
+keymap('n', 'K', ':lua show_documentation()<CR>', opts)
 
 function show_documentation()
   local filetype = vim.bo.filetype
   if filetype == 'vim' or filetype == 'help' then
     vim.api.nvim_command('h ' .. vim.fn.expand('<cword>'))
-  elseif vim.fn['coc#rpc#ready']() then
+  elseif vim.fn['coc#rpc#ready']() and vim.fn.CocAction('hasProvider', 'hover') then
     vim.fn.CocActionAsync('doHover')
   else
-    vim.api.nvim_command(
-      '!' .. vim.bo.keywordprg .. ' ' .. vim.fn.expand('<cword>')
-    )
+    vim.fn.feedkeys('K', 'in')
   end
 end
 
@@ -105,8 +113,16 @@ keymap('o', 'ac', '<Plug>(coc-classobj-a)', opts)
 
 
 -- Mappings for CoCList
+keymap('n', '<space>f', ':<C-u>CocList files<CR>', opts)
+keymap('n', '<space>g', ':<C-u>CocList grep<CR>', opts)
+keymap('n', '<space>m', ':<C-u>CocList mru<CR>', opts)
+keymap('n', '<space>t', ':<C-u>CocList tags<CR>', opts)
+
+-- Grep current word
+keymap('n', '<space>w', [[:exe 'CocList -I --input='.expand('<cword>').' words'<CR>]], opts)
+
 -- Show all diagnostics.
-keymap('n', '<space>a', ':<C-u>CocList diagnostics<CR>', opts)
+keymap('n', '<space>d', ':<C-u>CocList diagnostics<CR>', opts)
 -- Manage extensions.
 keymap('n', '<space>e', ':<C-u>CocList extensions<CR>', opts)
 -- Show commands.

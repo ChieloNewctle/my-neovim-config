@@ -39,11 +39,10 @@ keymap('n', '<C-Right>', ':vertical resize +2<CR>', opts)
 -- Navigate buffers
 keymap('n', '<A-L>', ':bnext<CR>', opts)
 keymap('n', '<A-H>', ':bprevious<CR>', opts)
-keymap('n', '<A-W>', ':bp<bar>sp<bar>bn<bar>bd<CR>', opts)
 
 -- Insert --
 -- Press jk fast to enter
-keymap('i', 'jk', '<ESC>', opts)
+-- keymap('i', 'jk', '<ESC>', opts)
 
 -- Visual --
 -- Stay in indent mode
