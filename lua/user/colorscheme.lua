@@ -2,7 +2,6 @@ local colorscheme = 'ayu-mirage'
 
 local status_ok, ayu = pcall(require, 'ayu')
 if colorscheme:find('ayu', 1, true) == 1 and status_ok then
-  vim.notify('ayu colorscheme: ' .. colorscheme)
   ayu.setup({
     mirage = true,
   })
