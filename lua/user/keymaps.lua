@@ -23,10 +23,10 @@ keymap('n', '<leader>w', ':w!<cr>', opts)
 
 -- Normal --
 -- Better window navigation
-keymap('n', '<C-S-h>', '<C-w>h', opts)
-keymap('n', '<C-S-j>', '<C-w>j', opts)
-keymap('n', '<C-S-k>', '<C-w>k', opts)
-keymap('n', '<C-S-l>', '<C-w>l', opts)
+keymap('n', '<A-H>', '<C-w>h', opts)
+keymap('n', '<A-J>', '<C-w>j', opts)
+keymap('n', '<A-K>', '<C-w>k', opts)
+keymap('n', '<A-L>', '<C-w>l', opts)
 
 -- Resize with arrows
 keymap('n', '<C-Up>', ':resize +2<CR>', opts)
@@ -35,8 +35,14 @@ keymap('n', '<C-Left>', ':vertical resize -2<CR>', opts)
 keymap('n', '<C-Right>', ':vertical resize +2<CR>', opts)
 
 -- Navigate buffers
-keymap('n', '<A-L>', ':bnext<CR>', opts)
-keymap('n', '<A-H>', ':bprevious<CR>', opts)
+-- keymap('n', '<A-l>', ':bnext<CR>', opts)
+-- keymap('n', '<A-h>', ':bprevious<CR>', opts)
+vim.api.nvim_exec([[
+  nnoremap <silent><expr> <A-l>
+    \ &filetype != 'NvimTree' ? ':bnext<CR>' : '\<A-l>'
+  nnoremap <silent><expr> <A-h>
+    \ &filetype != 'NvimTree' ? ':bprevious<CR>' : '\<A-h>'
+]], true)
 
 -- Insert --
 -- Press jk fast to enter
