@@ -28,6 +28,8 @@ keymap('n', '<A-J>', '<C-w>j', opts)
 keymap('n', '<A-K>', '<C-w>k', opts)
 keymap('n', '<A-L>', '<C-w>l', opts)
 
+keymap('n', '<A-W>', ':Bdelete', opts)
+
 -- Resize with arrows
 keymap('n', '<C-Up>', ':resize +2<CR>', opts)
 keymap('n', '<C-Down>', ':resize -2<CR>', opts)
