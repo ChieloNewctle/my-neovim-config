@@ -6,3 +6,4 @@ require 'user.colorscheme'
 require 'user.indent_o_matic'
 require 'user.treesitter'
 require "user.comment"
+require "user.gitsigns"
