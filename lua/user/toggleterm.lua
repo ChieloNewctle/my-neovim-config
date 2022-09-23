@@ -7,7 +7,7 @@ toggleterm.setup({
   open_mapping = [[<c-\>]],
   hide_numbers = true,
   persist_mode = true,
-  direction = 'vertical',
+  direction = 'float',
   close_on_exit = true,
 })
 
