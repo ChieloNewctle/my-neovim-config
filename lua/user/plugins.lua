@@ -47,17 +47,14 @@ return packer.startup(function(use)
   -- Colorschemes
   -- use 'lunarvim/colorschemes' -- A bunch of colorschemes you can try out
   -- use 'lunarvim/darkplus.nvim'
-  use 'folke/tokyonight.nvim'
   use 'Shatur/neovim-ayu'
-  use 'joshdick/onedark.vim'
-  use 'arcticicestudio/nord-vim'
-  use 'NLKNguyen/papercolor-theme'
-  use 'cocopon/iceberg.vim'
+  use 'EdenEast/nightfox.nvim'
 
   -- Lualine
   use {
     'nvim-lualine/lualine.nvim',
-    requires = { 'kyazdani42/nvim-web-devicons', opt = true }
+    requires = { 'kyazdani42/nvim-web-devicons', opt = true },
+    config = function() require('lualine').setup() end,
   }
 
   -- COC
@@ -75,14 +72,14 @@ return packer.startup(function(use)
   use { 'JoosepAlviste/nvim-ts-context-commentstring', requires = 'nvim-treesitter/nvim-treesitter' }
 
   -- Git
-  use "lewis6991/gitsigns.nvim"
-
-  -- Git
-  use "lewis6991/gitsigns.nvim"
+  use 'lewis6991/gitsigns.nvim'
 
   -- NvimTree
   use 'kyazdani42/nvim-web-devicons'
   use 'kyazdani42/nvim-tree.lua'
+
+  -- Surround
+  use { 'kylechui/nvim-surround', config = function() require('nvim-surround').setup() end }
 
   -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins
