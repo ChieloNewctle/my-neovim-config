@@ -7,3 +7,4 @@ require 'user.indent_o_matic'
 require 'user.treesitter'
 require "user.comment"
 require "user.gitsigns"
+require "user.nvim-tree"

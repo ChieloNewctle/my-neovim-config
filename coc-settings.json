@@ -8,7 +8,7 @@
   "diagnostic.errorSign": "",
   "diagnostic.warningSign": "",
   "diagnostic.infoSign": "",
-  "diagnostic.hintSign": "",
+  "diagnostic.hintSign": "",
 
   "suggest.completionItemKindLabels": {
     "keyword": "\uf1de", //  sliders
