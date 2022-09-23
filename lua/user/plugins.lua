@@ -78,6 +78,10 @@ return packer.startup(function(use)
   use 'kyazdani42/nvim-web-devicons'
   use 'kyazdani42/nvim-tree.lua'
 
+  -- Buffer Line
+  use 'akinsho/bufferline.nvim'
+  use 'moll/vim-bbye'
+
   -- Surround
   use { 'kylechui/nvim-surround', config = function() require('nvim-surround').setup() end }
 
