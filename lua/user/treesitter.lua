@@ -11,6 +11,7 @@ require('nvim-treesitter.configs').setup {
     max_file_lines = 5120,
   },
   context_commentstring = {
-    enable = true
+    enable = true,
+    enable_autocmd = false,
   },
 }
