@@ -85,6 +85,10 @@ return packer.startup(function(use)
   -- Surround
   use { 'kylechui/nvim-surround', config = function() require('nvim-surround').setup() end }
 
+  -- Toggleterm
+  use 'akinsho/toggleterm.nvim'
+
+
   -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins
   if PACKER_BOOTSTRAP then
