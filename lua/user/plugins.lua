@@ -91,10 +91,6 @@ return packer.startup(function(use)
   -- Toggleterm
   use 'akinsho/toggleterm.nvim'
 
-  -- Project
-  -- using coc-project instead of project.nvim
-  -- use 'ahmedkhalf/project.nvim'
-
   -- Indentline
   use 'lukas-reineke/indent-blankline.nvim'
 
