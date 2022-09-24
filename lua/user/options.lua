@@ -32,6 +32,10 @@ local options = {
   guifont = "monospace:h17",               -- the font used in graphical neovim applications
 }
 
+for k, v in pairs(options) do
+  vim.opt[k] = v
+end
+
 -- Don't redraw while executing macros (good performance config)
 vim.opt.lazyredraw = true
 
