@@ -65,11 +65,11 @@ keymap('x', '<A-k>', ':move \'<-2<CR>gv-gv', opts)
 
 -- Terminal --
 -- Better terminal navigation
---[[ local term_opts = { silent = true } ]]
---[[ keymap('t', '<A-J>', '<C-\\><C-N><C-w>h', term_opts) ]]
---[[ keymap('t', '<A-K>', '<C-\\><C-N><C-w>j', term_opts) ]]
---[[ keymap('t', '<A-L>', '<C-\\><C-N><C-w>k', term_opts) ]]
---[[ keymap('t', '<A-H>', '<C-\\><C-N><C-w>l', term_opts) ]]
+-- local term_opts = { silent = true }
+-- keymap('t', '<A-J>', '<C-\\><C-N><C-w>h', term_opts)
+-- keymap('t', '<A-K>', '<C-\\><C-N><C-w>j', term_opts)
+-- keymap('t', '<A-L>', '<C-\\><C-N><C-w>k', term_opts)
+-- keymap('t', '<A-H>', '<C-\\><C-N><C-w>l', term_opts)
 
 -- Nvimtree
 keymap('n', '<leader>e', ':NvimTreeToggle<cr>', opts)
