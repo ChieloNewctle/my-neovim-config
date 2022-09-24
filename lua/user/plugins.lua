@@ -54,20 +54,16 @@ return packer.startup(function(use)
   use 'EdenEast/nightfox.nvim'
 
   -- Lualine
-  use {
-    'nvim-lualine/lualine.nvim',
-    requires = { 'kyazdani42/nvim-web-devicons', opt = true },
-    config = function() require('lualine').setup() end,
-  }
+  use 'nvim-lualine/lualine.nvim'
 
   -- COC
   use { 'neoclide/coc.nvim', branch = 'release' }
 
   -- Indent-o-matic
-  use { 'Darazaki/indent-o-matic' }
+  use 'Darazaki/indent-o-matic'
 
   -- Comment
-  use { 'numToStr/Comment.nvim', config = function() require('Comment').setup() end }
+  use 'terrortylor/nvim-comment'
 
   -- Treesitter
   use { 'nvim-treesitter/nvim-treesitter', run = ':TSUpdate' }
@@ -88,7 +84,7 @@ return packer.startup(function(use)
   -- Surround
   use { 'kylechui/nvim-surround', config = function() require('nvim-surround').setup() end }
 
-  -- Toggleterm
+  -- Terminal
   use 'akinsho/toggleterm.nvim'
 
   -- Indentline

@@ -1,0 +1,5 @@
+neovim-remote
+python-lsp-server[all]
+pylsp-mypy
+pylsp-rope
+python-lsp-black

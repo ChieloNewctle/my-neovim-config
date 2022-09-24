@@ -38,12 +38,12 @@ keymap('n', 'gD', '<Plug>(coc-type-definition)', opts)
 keymap('n', 'gi', '<Plug>(coc-implementation)', opts)
 keymap('n', 'gr', '<Plug>(coc-references)', opts)
 
-keymap('n', '[g', '<Plug>(coc-diagnostic-prev)', opts)
-keymap('n', ']g', '<Plug>(coc-diagnostic-next)', opts)
+keymap('n', '[d', '<Plug>(coc-diagnostic-prev)', opts)
+keymap('n', ']d', '<Plug>(coc-diagnostic-next)', opts)
 
-keymap('n', 'K', ':lua show_documentation()<CR>', opts)
+keymap('n', 'K', ':lua _Show_Documentation()<CR>', opts)
 
-function show_documentation()
+function _Show_Documentation()
   local filetype = vim.bo.filetype
   if filetype == 'vim' or filetype == 'help' then
     vim.api.nvim_command('h ' .. vim.fn.expand('<cword>'))
