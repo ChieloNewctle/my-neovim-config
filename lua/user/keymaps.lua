@@ -1,7 +1,5 @@
 local opts = { noremap = true, silent = true }
 
-local term_opts = { silent = true }
-
 -- Shorten function name
 local keymap = vim.api.nvim_set_keymap
 
@@ -23,10 +21,10 @@ keymap('n', '<leader>w', ':w!<cr>', opts)
 
 -- Normal --
 -- Better window navigation
-keymap('n', '<A-H>', '<C-w>h', opts)
 keymap('n', '<A-J>', '<C-w>j', opts)
 keymap('n', '<A-K>', '<C-w>k', opts)
 keymap('n', '<A-L>', '<C-w>l', opts)
+keymap('n', '<A-H>', '<C-w>h', opts)
 
 -- Resize with arrows
 keymap('n', '<C-Up>', ':resize +2<CR>', opts)
@@ -67,10 +65,11 @@ keymap('x', '<A-k>', ':move \'<-2<CR>gv-gv', opts)
 
 -- Terminal --
 -- Better terminal navigation
-keymap('t', '<C-S-h>', '<C-\\><C-N><C-w>h', term_opts)
-keymap('t', '<C-S-j>', '<C-\\><C-N><C-w>j', term_opts)
-keymap('t', '<C-S-k>', '<C-\\><C-N><C-w>k', term_opts)
-keymap('t', '<C-S-l>', '<C-\\><C-N><C-w>l', term_opts)
+--[[ local term_opts = { silent = true } ]]
+--[[ keymap('t', '<A-J>', '<C-\\><C-N><C-w>h', term_opts) ]]
+--[[ keymap('t', '<A-K>', '<C-\\><C-N><C-w>j', term_opts) ]]
+--[[ keymap('t', '<A-L>', '<C-\\><C-N><C-w>k', term_opts) ]]
+--[[ keymap('t', '<A-H>', '<C-\\><C-N><C-w>l', term_opts) ]]
 
 -- Nvimtree
 keymap('n', '<leader>e', ':NvimTreeToggle<cr>', opts)

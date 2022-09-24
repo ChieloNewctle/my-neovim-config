@@ -5,9 +5,10 @@ require 'user.plugins'
 require 'user.colorscheme'
 require 'user.indent_o_matic'
 require 'user.treesitter'
-require "user.comment"
-require "user.gitsigns"
-require "user.nvim-tree"
-require "user.bufferline"
-require "user.toggleterm"
-require "user.project"
+require 'user.comment'
+require 'user.gitsigns'
+require 'user.nvim-tree'
+require 'user.bufferline'
+require 'user.toggleterm'
+require 'user.project'
+require 'user.impatient'
