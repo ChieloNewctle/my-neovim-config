@@ -30,7 +30,6 @@ nvim_tree.setup {
   view = {
     side = 'left',
     mappings = {
-      custom_only = false,
       list = {
         { key = 'h', cb = tree_cb 'close_node' },
       },
