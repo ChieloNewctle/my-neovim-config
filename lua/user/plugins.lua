@@ -43,12 +43,10 @@ return packer.startup(function(use)
   use 'wbthomason/packer.nvim' -- Have packer manage itself
   use 'nvim-lua/popup.nvim' -- An implementation of the Popup API from vim in Neovim
   use 'nvim-lua/plenary.nvim' -- Useful lua functions used ny lots of plugins
+  use 'antoinemadec/FixCursorHold.nvim' -- This is needed to fix lsp doc highlight
 
   -- Impatient
   use 'lewis6991/impatient.nvim'
-  use "lukas-reineke/indent-blankline.nvim"
-  use 'goolord/alpha-nvim'
-  use "antoinemadec/FixCursorHold.nvim" -- This is needed to fix lsp doc highlight
 
   -- Colorschemes
   -- use 'lunarvim/colorschemes' -- A bunch of colorschemes you can try out
@@ -95,10 +93,14 @@ return packer.startup(function(use)
   use 'akinsho/toggleterm.nvim'
 
   -- Project
-  use "ahmedkhalf/project.nvim"
+  -- using coc-project instead of project.nvim
+  -- use 'ahmedkhalf/project.nvim'
 
   -- Indentline
   use 'lukas-reineke/indent-blankline.nvim'
+
+  -- Alpha
+  use 'goolord/alpha-nvim'
 
   -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins
