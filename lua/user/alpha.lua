@@ -16,7 +16,7 @@ dashboard.section.buttons.val = {
   dashboard.button('f', '  Find file', ':<C-u>CocList files<CR>'),
   dashboard.button('e', '  New file', ':ene <BAR> startinsert <CR>'),
   dashboard.button('p', '  Find project', ':<C-u>CocList project<CR>'),
-  dashboard.button('r', '  Recently used files', ':<C-u>CocList mru<CR>'),
+  dashboard.button('m', '  Most recently used files', ':<C-u>CocList mru<CR>'),
   dashboard.button('g', '  Grep text', ':<C-u>CocList grep<CR>'),
   dashboard.button('c', '  Configuration', ':e ~/.config/nvim/init.lua<CR>'),
   dashboard.button('q', '  Quit Neovim', ':qa<CR>'),
