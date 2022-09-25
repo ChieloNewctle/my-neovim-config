@@ -18,6 +18,8 @@ vim.g.maplocalleader = ','
 
 -- Fast saving
 keymap('n', '<leader>w', ':w!<cr>', opts)
+-- Fast quit
+keymap('q', '<leader>q', ':qa<cr>', opts)
 
 -- Normal --
 -- Better window navigation
