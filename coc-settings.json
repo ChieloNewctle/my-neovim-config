@@ -1,8 +1,35 @@
 {
+  "coc.preferences.useQuickfixForLocations": true,
+
+  // "coc.preferences.formatOnSaveFiletypes": [
+  //   "c",
+  //   "cpp",
+  //   "python",
+  //   "json",
+  //   "markdown"
+  // ],
+
   "coc.source.emoji.filetypes": ["markdown"],
 
   "project.enable": true,
-  "project.rootPatterns": [".git", "_darcs", ".hg", ".bzr", ".svn", "package.json"],
+  "project.rootPatterns": [
+    ".git",
+    "_darcs",
+    ".hg",
+    ".bzr",
+    ".svn",
+    "package.json"
+  ],
+  "coc.preferences.rootPatterns": [
+    ".git",
+    "_darcs",
+    ".hg",
+    ".bzr",
+    ".svn",
+    "package.json"
+  ],
+
+  "suggest.removeDuplicateItems": true,
 
   "codeLens.enable": true,
 
@@ -40,7 +67,9 @@
     "default": "\uf29c" //  question mark in circle
   },
 
+  "pylsp.plugins.pycodestyle.enabled": false,
+  "pylsp.plugins.rope_completion.enabled": true,
+  "pylsp.plugins.yapf.enabled": false,
   "pylsp.builtin.enableInstallPylspMypy": true,
-  "pylsp.builtin.enableInstallPylsIsort": true,
   "pylsp.builtin.enableInstallPythonLspBlack": true
 }
