@@ -59,6 +59,9 @@ return packer.startup(function(use)
   -- COC
   use { 'neoclide/coc.nvim', branch = 'release' }
 
+  -- LaTeX
+  use 'lervag/vimtex'
+
   -- Markdown
   use {
     'iamcco/markdown-preview.nvim',
