@@ -1,7 +1,5 @@
 {
-  "coc.source.emoji.filetypes": [
-    "markdown"
-  ],
+  "coc.source.emoji.filetypes": ["markdown"],
 
   "project.enable": true,
   "project.rootPatterns": [".git", "_darcs", ".hg", ".bzr", ".svn", "package.json"],

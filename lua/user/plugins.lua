@@ -59,6 +59,12 @@ return packer.startup(function(use)
   -- COC
   use { 'neoclide/coc.nvim', branch = 'release' }
 
+  -- Markdown
+  use {
+    'iamcco/markdown-preview.nvim',
+    run = function() vim.fn['mkdp#util#install']() end,
+  }
+
   -- Indent-o-matic
   use 'Darazaki/indent-o-matic'
 
