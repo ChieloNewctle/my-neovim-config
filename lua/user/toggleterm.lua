@@ -3,13 +3,13 @@ if not status_ok then
   return
 end
 
-toggleterm.setup({
+toggleterm.setup {
   open_mapping = [[<C-\>]],
   hide_numbers = true,
   persist_mode = true,
   direction = 'horizontal',
   close_on_exit = true,
-})
+}
 
 local Terminal = require('toggleterm.terminal').Terminal
 local lazygit = Terminal:new({
