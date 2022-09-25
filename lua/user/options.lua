@@ -70,3 +70,5 @@ vim.cmd [[set iskeyword+=-]]
 vim.cmd [[set formatoptions-=cro]] -- TODO: this doesn't seem to work
 
 vim.cmd [[command! W execute 'w !sudo tee % > /dev/null' <bar> edit!]]
+
+vim.cmd [[au FocusGained,BufEnter * :checktime]]
