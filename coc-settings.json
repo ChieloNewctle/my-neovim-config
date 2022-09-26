@@ -11,6 +11,11 @@
 
   "coc.source.emoji.filetypes": ["markdown"],
 
+  "list.source.files.command": "rg",
+  "list.source.files.args": ["--hidden", "--files"],
+  "list.source.grep.command": "rg",
+  "list.source.grep.args": ["--hidden"],
+
   "project.enable": true,
   "project.rootPatterns": [
     ".git",
