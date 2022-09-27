@@ -3,40 +3,25 @@ if not status_ok then
   return
 end
 
-local config_status_ok, nvim_tree_config = pcall(require, 'nvim-tree.config')
-if not config_status_ok then
-  return
-end
-
-local tree_cb = nvim_tree_config.nvim_tree_callback
-
 nvim_tree.setup {
+  ignore_ft_on_setup = { 'alpha', 'dashboard' },
   sync_root_with_cwd = true,
   respect_buf_cwd = true,
-  hijack_cursor = true,
-  open_on_tab = false,
-  diagnostics = {
-    enable = true,
-  },
   update_focused_file = {
     enable = true,
     update_root = true,
   },
   git = {
-    enable = true,
-    ignore = true,
-    timeout = 500,
+    ignore = false,
   },
-  view = {
-    side = 'left',
-    mappings = {
-      list = {
-        { key = 'h', cb = tree_cb 'close_node' },
-      },
-    },
+  diagnostics = {
+    enable = true,
+    show_on_dirs = true,
   },
   renderer = {
-    highlight_git = true,
-    highlight_opened_files = 'name',
+    highlight_opened_files = 'icon',
+    indent_markers = {
+      enable = true,
+    },
   },
 }

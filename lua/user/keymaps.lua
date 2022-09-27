@@ -17,7 +17,7 @@ vim.g.maplocalleader = ','
 --   command_mode = 'c',
 
 -- Fast saving
-keymap('n', '<leader>w', ':w!<cr>', opts)
+keymap('n', '<leader>W', ':w!<cr>', opts)
 -- Fast quit
 keymap('n', '<leader>Q', ':qa<cr>', opts)
 
@@ -37,6 +37,14 @@ keymap('n', '<C-Right>', ':vertical resize +2<CR>', opts)
 -- Navigate buffers
 -- keymap('n', '<A-l>', ':bnext<CR>', opts)
 -- keymap('n', '<A-h>', ':bprevious<CR>', opts)
+-- vim.api.nvim_exec([[
+--   nnoremap <silent><expr> <A-l>
+--     \ &filetype != 'CHADTree' ? ':bnext<CR>' : '\<A-l>'
+--   nnoremap <silent><expr> <A-h>
+--     \ &filetype != 'CHADTree' ? ':bprevious<CR>' : '\<A-h>'
+--   nnoremap <silent><expr> <A-W>
+--     \ &filetype != 'CHADTree' ? ':Bdelete<CR>' : '\<A-W>'
+-- ]], true)
 vim.api.nvim_exec([[
   nnoremap <silent><expr> <A-l>
     \ &filetype != 'NvimTree' ? ':bnext<CR>' : '\<A-l>'
@@ -73,5 +81,15 @@ keymap('t', '<A-Down>', '<C-\\><C-N><C-w>j', term_opts)
 keymap('t', '<A-Left>', '<C-\\><C-N><C-w>k', term_opts)
 keymap('t', '<A-Right>', '<C-\\><C-N><C-w>l', term_opts)
 
--- Nvimtree
-keymap('n', '<leader>e', ':NvimTreeToggle<cr>', opts)
+-- Tree
+keymap('n', '<leader>e', '<cmd>NvimTreeToggle<cr>', opts)
+
+keymap('n', '<leader>cq', '<cmd>call setqflist([])<cr>', opts)
+
+-- DAP
+keymap('n', '<leader>dt', '<cmd>require"dap".toggle_breakpoint()<cr>', opts)
+keymap('n', '<leader>dc', '<cmd>require"dap".continue()<cr>', opts)
+keymap('n', '<leader>do', '<cmd>require"dap".step_over()<cr>', opts)
+keymap('n', '<leader>di', '<cmd>require"dap".step_into()<cr>', opts)
+keymap('n', '<leader>dr', '<cmd>require"dap".repl.toggle()<cr>', opts)
+keymap('n', '<leader>dD', '<cmd>require"dap".disconnect()<cr>', opts)

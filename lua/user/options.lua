@@ -50,16 +50,14 @@ vim.opt.expandtab = true
 vim.opt.smarttab = true
 vim.opt.shiftwidth = 4
 vim.opt.tabstop = 4
-vim.opt.smartindent = true                      -- make indenting smarter again
-vim.opt.autoindent = true
 
 vim.opt.showbreak = '↪ '
 vim.opt.list = true
 vim.opt.listchars = {
-  tab = '<->',
+  tab = '>-',
   -- eol = '↵',
   nbsp = '␣',
-  trail = '·',
+  trail = '',
   extends = '›',
   precedes = '‹',
 }

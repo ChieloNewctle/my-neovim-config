@@ -1,5 +1,6 @@
 neovim-remote
-python-lsp-server[all]
-pylsp-mypy
-pylsp-rope
-python-lsp-black
+# black[d]
+# python-lsp-server[all]
+# pylsp-mypy
+# pylsp-rope
+# python-lsp-black

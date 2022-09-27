@@ -26,7 +26,7 @@ vim.cmd([[
 -- Use a protected call so we don't error out on first use
 local status_ok, packer = pcall(require, 'packer')
 if not status_ok then
-	return
+  return
 end
 
 -- Have packer use a popup window
@@ -56,8 +56,30 @@ return packer.startup(function(use)
   -- Lualine
   use 'nvim-lualine/lualine.nvim'
 
+  -- Telescope
+  use 'nvim-telescope/telescope.nvim'
+  use 'nvim-telescope/telescope-media-files.nvim'
+  use 'natecraddock/telescope-zf-native.nvim'
+  use 'nvim-telescope/telescope-live-grep-args.nvim'
+
   -- COC
-  use { 'neoclide/coc.nvim', branch = 'release' }
+  -- use { 'neoclide/coc.nvim', branch = 'release' }
+
+  -- LSP and COQ
+  use {
+    'williamboman/mason.nvim',
+    'williamboman/mason-lspconfig.nvim',
+    'neovim/nvim-lspconfig',
+    { 'ms-jpq/coq_nvim', branch = 'coq', run = 'python3 -m coq deps' },
+    { 'ms-jpq/coq.artifacts', branch = 'artifacts' },
+    { 'ms-jpq/coq.thirdparty', branch = '3p' },
+  }
+
+  -- Null-ls
+  use 'jose-elias-alvarez/null-ls.nvim'
+
+  -- DAP
+  use 'mfussenegger/nvim-dap'
 
   -- LaTeX
   use 'lervag/vimtex'
@@ -85,6 +107,9 @@ return packer.startup(function(use)
   -- NvimTree
   use 'kyazdani42/nvim-web-devicons'
   use 'kyazdani42/nvim-tree.lua'
+
+  -- Project
+  use 'ahmedkhalf/project.nvim'
 
   -- Buffer Line
   use 'akinsho/bufferline.nvim'

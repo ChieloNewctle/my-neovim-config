@@ -7,7 +7,7 @@ lualine.setup {
   options = {
     icons_enabled = true,
     theme = 'auto',
-    disabled_filetypes = { 'alpha', 'dashboard', 'NvimTree', 'Outline' },
+    disabled_filetypes = { 'alpha', 'CHADTree', 'dashboard', 'NvimTree', 'Outline' },
   },
   sections = {
     lualine_c = {

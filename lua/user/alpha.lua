@@ -13,17 +13,31 @@ dashboard.section.header.val = {
   [[ \/_/\/_/\/____/\/___/  \/__/    \/_/\/_/\/_/\/_/]],
 }
 dashboard.section.buttons.val = {
-  dashboard.button('f', '  Find file', ':<C-u>CocList files<CR>'),
-  dashboard.button('e', '  New file', ':ene <BAR> startinsert <CR>'),
-  dashboard.button('p', '  Find project', ':<C-u>CocList project<CR>'),
-  dashboard.button('m', '  Most recently used files', ':<C-u>CocList mru<CR>'),
-  dashboard.button('g', '  Grep text', ':<C-u>CocList grep<CR>'),
-  dashboard.button('c', '  Configuration', ':e ~/.config/nvim/init.lua<CR>'),
-  dashboard.button('q', '  Quit Neovim', ':qa<CR>'),
+  dashboard.button(
+    'f', '  Find file',
+    ':Telescope find_files<CR>'),
+  dashboard.button(
+    'e', '  New file',
+    ':ene <BAR> startinsert <CR>'),
+  dashboard.button(
+    'p', '  Find project',
+    ':Telescope projects<CR>'),
+  dashboard.button(
+    'm', '  Most recently used files',
+    ':Telescope oldfiles<CR>'),
+  dashboard.button(
+    'g', '  Grep text',
+    ':lua require("telescope").extensions.live_grep_args.live_grep_args()<CR>'),
+  dashboard.button(
+    'c', '  Configuration',
+    ':e ~/.config/nvim/init.lua<CR>'),
+  dashboard.button(
+    'q', '  Quit Neovim',
+    ':qa<CR>'),
 }
 
 local function footer()
--- NOTE: requires the fortune-mod package to work
+  -- NOTE: requires the fortune-mod package to work
   -- local handle = io.popen('fortune')
   -- local fortune = handle:read('*a')
   -- handle:close()

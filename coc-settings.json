@@ -72,9 +72,6 @@
     "default": "\uf29c" //  question mark in circle
   },
 
-  "pylsp.plugins.pycodestyle.enabled": false,
-  "pylsp.plugins.rope_completion.enabled": true,
-  "pylsp.plugins.yapf.enabled": false,
-  "pylsp.builtin.enableInstallPylspMypy": true,
-  "pylsp.builtin.enableInstallPythonLspBlack": true
+  "python.formatting.provider": "blackd",
+  "python.linting.mypyEnabled": true
 }

@@ -54,7 +54,6 @@ function _Show_Documentation()
   end
 end
 
-
 vim.api.nvim_exec([[
   autocmd CursorHold * silent call CocActionAsync('highlight')
   augroup coc_action_group

@@ -21,7 +21,7 @@ local lazygit = Terminal:new({
   },
   on_open = function(term)
     vim.cmd('startinsert!')
-    vim.api.nvim_buf_set_keymap(term.bufnr, 'n', 'q', '<cmd>close<CR>', {noremap = true, silent = true})
+    vim.api.nvim_buf_set_keymap(term.bufnr, 'n', 'q', '<cmd>close<CR>', { noremap = true, silent = true })
   end,
 })
 
@@ -29,4 +29,4 @@ function _LAZYGIT_TOGGLE()
   lazygit:toggle()
 end
 
-vim.api.nvim_set_keymap('n', '<leader>g', '<cmd>lua _LAZYGIT_TOGGLE()<CR>', {noremap = true, silent = true})
+vim.api.nvim_set_keymap('n', '<leader>g', '<cmd>lua _LAZYGIT_TOGGLE()<CR>', { noremap = true, silent = true })
