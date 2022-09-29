@@ -27,7 +27,7 @@ dashboard.section.buttons.val = {
     ':Telescope oldfiles<CR>'),
   dashboard.button(
     'g', '  Grep text',
-    ':lua require("telescope").extensions.live_grep_args.live_grep_args()<CR>'),
+    ':Telescope live_grep<CR>'),
   dashboard.button(
     'c', '  Configuration',
     ':e ~/.config/nvim/init.lua<CR>'),

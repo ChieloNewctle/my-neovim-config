@@ -10,10 +10,13 @@ local status_ok, lspconfig = pcall(require, 'lspconfig')
 if not status_ok then
   return
 end
-local status_ok, coq = pcall(require, 'coq')
+local status_ok, cmp_nvim_lsp = pcall(require, 'cmp_nvim_lsp')
 if not status_ok then
   return
 end
+
+local capabilities = vim.lsp.protocol.make_client_capabilities()
+capabilities = cmp_nvim_lsp.update_capabilities(capabilities)
 
 local servers = {
   'sumneko_lua',
@@ -73,12 +76,27 @@ local on_attach = function(client, bufnr)
   vim.keymap.set('n', '<leader>F', vim.lsp.buf.formatting, bufopts)
 end
 
--- Automatically start coq
-vim.g.coq_settings = { auto_start = 'shut-up' }
-
--- Enable some language servers with the additional completion capabilities offered by coq_nvim
 for _, lsp in ipairs(servers) do
-  lspconfig[lsp].setup(coq.lsp_ensure_capabilities({
-    on_attach = on_attach,
-  }))
+  local lsp_util = require('lspconfig/util')
+  local utils = require('utils')
+  lspconfig.pyright.setup({
+    capabilities = capabilities,
+    on_attach = function(client, bufnr)
+      client.server_capabilities.documentFormattingProvider = false
+      client.server_capabilities.documentRangeFormattingProvider = false
+      on_attach(client, bufnr)
+    end,
+    before_init = function(_, config)
+      local p
+      if vim.env.VIRTUAL_ENV then
+        p = lsp_util.path.join(vim.env.VIRTUAL_ENV, "bin", "python3")
+      else
+        p = utils.find_cmd("python3", ".venv/bin", config.root_dir)
+      end
+      config.settings.python.pythonPath = p
+    end,
+    settings = {
+      disableOrganizeImports = true,
+    },
+  })
 end

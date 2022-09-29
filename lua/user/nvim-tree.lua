@@ -12,7 +12,7 @@ nvim_tree.setup {
     update_root = true,
   },
   git = {
-    ignore = false,
+    ignore = true,
   },
   diagnostics = {
     enable = true,

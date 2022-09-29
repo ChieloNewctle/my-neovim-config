@@ -65,14 +65,15 @@ return packer.startup(function(use)
   -- COC
   -- use { 'neoclide/coc.nvim', branch = 'release' }
 
-  -- LSP and COQ
+  -- LSP and autocomplete
   use {
     'williamboman/mason.nvim',
     'williamboman/mason-lspconfig.nvim',
     'neovim/nvim-lspconfig',
-    { 'ms-jpq/coq_nvim', branch = 'coq', run = 'python3 -m coq deps' },
-    { 'ms-jpq/coq.artifacts', branch = 'artifacts' },
-    { 'ms-jpq/coq.thirdparty', branch = '3p' },
+    'hrsh7th/nvim-cmp',
+    'hrsh7th/cmp-nvim-lsp',
+    'saadparwaiz1/cmp_luasnip',
+    'L3MON4D3/LuaSnip',
   }
 
   -- Null-ls
