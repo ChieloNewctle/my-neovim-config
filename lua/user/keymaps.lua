@@ -17,7 +17,7 @@ vim.g.maplocalleader = ','
 --   command_mode = 'c',
 
 -- Fast saving
-keymap('n', '<leader>w', ':w!<cr>', opts)
+keymap('n', '<leader>W', ':w!<cr>', opts)
 -- Fast quit
 keymap('n', '<leader>q', ':q<cr>', opts)
 keymap('n', '<leader>Q', ':qa<cr>', opts)
@@ -46,14 +46,25 @@ keymap('n', '<C-Right>', ':vertical resize +2<CR>', opts)
 --   nnoremap <silent><expr> <A-W>
 --     \ &filetype != 'CHADTree' ? ':Bdelete<CR>' : '\<A-W>'
 -- ]], true)
-vim.api.nvim_exec([[
-  nnoremap <silent><expr> <A-l>
-    \ &filetype != 'NvimTree' ? ':bnext<CR>' : '\<A-l>'
-  nnoremap <silent><expr> <A-h>
-    \ &filetype != 'NvimTree' ? ':bprevious<CR>' : '\<A-h>'
-  nnoremap <silent><expr> <A-W>
-    \ &filetype != 'NvimTree' ? ':Bdelete<CR>' : '\<A-W>'
-]], true)
+-- vim.api.nvim_exec([[
+--   nnoremap <silent><expr> <A-l>
+--     \ &filetype != 'NvimTree' ? ':bnext<CR>' : '\<A-l>'
+--   nnoremap <silent><expr> <A-h>
+--     \ &filetype != 'NvimTree' ? ':bprevious<CR>' : '\<A-h>'
+--   nnoremap <silent><expr> <A-W>
+--     \ &filetype != 'NvimTree' ? ':Bdelete<CR>' : '\<A-W>'
+-- ]], true)
+local function non_sidebar_call(c)
+  return function()
+    if not require('user.sidebar').is_current_buffer_sidebar() then
+      vim.cmd(c)
+    end
+  end
+end
+
+for u, v in pairs({ ['<A-l>'] = 'bnext', ['<A-h>'] = 'bprevious', ['<A-W>'] = 'Bdelete' }) do
+  vim.keymap.set('n', u, non_sidebar_call(v), opts)
+end
 
 -- Insert --
 -- Press jk fast to enter
@@ -83,9 +94,13 @@ keymap('t', '<A-Left>', '<C-\\><C-N><C-w>k', term_opts)
 keymap('t', '<A-Right>', '<C-\\><C-N><C-w>l', term_opts)
 
 -- Tree
-keymap('n', '<leader>e', '<cmd>NvimTreeToggle<cr>', opts)
+vim.keymap.set('n', '<leader>e', function() require('user.sidebar').exclusive_toggle('NvimTree') end, opts)
+-- keymap('n', '<leader>e', '<cmd>Fern . -drawer -toggle<cr>', opts)
 
-keymap('n', '<leader>cq', '<cmd>call setqflist([])<cr>', opts)
+-- keymap('n', '<leader>cq', '<cmd>call setqflist([])<cr>', opts)
+
+-- Outline
+vim.keymap.set('n', '<leader>a', function() require('user.sidebar').exclusive_toggle('aerial') end, opts)
 
 -- DAP
 keymap('n', '<leader>dt', '<cmd>require"dap".toggle_breakpoint()<cr>', opts)

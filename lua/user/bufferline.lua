@@ -18,6 +18,8 @@ bufferline.setup {
     offsets = {
       { filetype = 'NvimTree', text = '', padding = 1 },
       { filetype = 'CHADTree', text = '', padding = 1 },
+      { filetype = 'fern', text = '', padding = 1 },
+      { filetype = 'aerial', text = '', padding = 1 },
     },
     color_icons = true,
     show_buffer_icons = true,

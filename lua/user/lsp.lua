@@ -14,6 +14,10 @@ local status_ok, cmp_nvim_lsp = pcall(require, 'cmp_nvim_lsp')
 if not status_ok then
   return
 end
+local status_ok, aerial = pcall(require, 'aerial')
+if not status_ok then
+  return
+end
 
 local capabilities = vim.lsp.protocol.make_client_capabilities()
 capabilities = cmp_nvim_lsp.update_capabilities(capabilities)
@@ -53,8 +57,12 @@ vim.keymap.set('n', '<space>q', vim.diagnostic.setloclist, opts)
 -- Use an on_attach function to only map the following keys
 -- after the language server attaches to the current buffer
 local on_attach = function(client, bufnr)
+  aerial.on_attach(client, bufnr)
+
   -- Enable completion triggered by <c-x><c-o>
   vim.api.nvim_buf_set_option(bufnr, 'omnifunc', 'v:lua.vim.lsp.omnifunc')
+
+  vim.api.nvim_buf_set_option(bufnr, 'formatexpr', 'v:lua.vim.lsp.formatexpr()')
 
   -- Mappings.
   -- See `:help vim.lsp.*` for documentation on any of the below functions
@@ -73,30 +81,25 @@ local on_attach = function(client, bufnr)
   vim.keymap.set('n', '<leader>D', vim.lsp.buf.type_definition, bufopts)
   vim.keymap.set('n', '<leader>rn', vim.lsp.buf.rename, bufopts)
   vim.keymap.set('n', '<leader>ca', vim.lsp.buf.code_action, bufopts)
-  vim.keymap.set('n', '<leader>F', vim.lsp.buf.formatting, bufopts)
+  vim.keymap.set('n', '<leader>F', function() vim.lsp.buf.format { async = true } end, bufopts)
 end
 
-for _, lsp in ipairs(servers) do
-  local lsp_util = require('lspconfig/util')
-  local utils = require('utils')
-  lspconfig.pyright.setup({
-    capabilities = capabilities,
-    on_attach = function(client, bufnr)
-      client.server_capabilities.documentFormattingProvider = false
-      client.server_capabilities.documentRangeFormattingProvider = false
-      on_attach(client, bufnr)
-    end,
-    before_init = function(_, config)
-      local p
-      if vim.env.VIRTUAL_ENV then
-        p = lsp_util.path.join(vim.env.VIRTUAL_ENV, "bin", "python3")
-      else
-        p = utils.find_cmd("python3", ".venv/bin", config.root_dir)
-      end
-      config.settings.python.pythonPath = p
-    end,
-    settings = {
-      disableOrganizeImports = true,
-    },
-  })
-end
+mason_lspconfig.setup_handlers {
+  function(server_name)
+    lspconfig[server_name].setup {
+      capabilities = capabilities,
+      on_attach = on_attach,
+    }
+  end,
+  ['sumneko_lua'] = function()
+    lspconfig.sumneko_lua.setup {
+      capabilities = capabilities,
+      on_attach = on_attach,
+      settings = {
+        Lua = {
+          diagnostics = { globals = { 'vim' } },
+        },
+      },
+    }
+  end,
+}

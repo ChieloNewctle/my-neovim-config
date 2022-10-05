@@ -74,6 +74,8 @@ return packer.startup(function(use)
     'hrsh7th/cmp-nvim-lsp',
     'saadparwaiz1/cmp_luasnip',
     'L3MON4D3/LuaSnip',
+    'hrsh7th/cmp-buffer',
+    'hrsh7th/cmp-path',
   }
 
   -- Null-ls
@@ -81,6 +83,9 @@ return packer.startup(function(use)
 
   -- DAP
   use 'mfussenegger/nvim-dap'
+
+  -- Outline
+  use 'stevearc/aerial.nvim'
 
   -- LaTeX
   use 'lervag/vimtex'
@@ -105,8 +110,12 @@ return packer.startup(function(use)
   -- Git
   use 'lewis6991/gitsigns.nvim'
 
-  -- NvimTree
+  -- Nerd font
   use 'kyazdani42/nvim-web-devicons'
+  use 'lambdalisue/glyph-palette.vim'
+  use 'lambdalisue/nerdfont.vim'
+
+  -- NvimTree
   use 'kyazdani42/nvim-tree.lua'
 
   -- Project

@@ -9,7 +9,7 @@ null_ls.setup {
     null_ls.builtins.diagnostics.cmake_lint,
     -- null_ls.builtins.formatting.stylua,
     null_ls.builtins.formatting.black,
-    null_ls.builtins.formatting.clang_format,
+    -- null_ls.builtins.formatting.clang_format,
     null_ls.builtins.formatting.cmake_format,
   },
 }

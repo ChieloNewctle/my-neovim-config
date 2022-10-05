@@ -6,6 +6,7 @@ end
 telescope.load_extension('zf-native')
 telescope.load_extension('media_files')
 telescope.load_extension('projects')
+telescope.load_extension('aerial')
 
 local actions = require 'telescope.actions'
 
@@ -123,5 +124,6 @@ keymap('n', '<space>lr', ':Telescope lsp_references<CR>', opts)
 keymap('n', '<space>ld', ':Telescope lsp_definitions<CR>', opts)
 keymap('n', '<space>lt', ':Telescope lsp_type_definitions<CR>', opts)
 keymap('n', '<space>li', ':Telescope lsp_implementations<CR>', opts)
+keymap('n', '<space>a', ':Telescope aerial<CR>', opts)
 
 keymap('n', '<space>R', ':Telescope resume<CR>', opts)

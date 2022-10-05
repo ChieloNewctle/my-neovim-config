@@ -12,6 +12,7 @@ vim.g.indent_blankline_filetype_exclude = {
   'neogitstatus',
   'NvimTree',
   'CHADTree',
+  'fern',
   'Trouble',
 }
 vim.g.indentLine_enabled = 1
