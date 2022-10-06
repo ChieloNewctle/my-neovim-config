@@ -71,7 +71,4 @@ vim.cmd [[command! W execute 'w !sudo tee % > /dev/null' <bar> edit!]]
 
 vim.cmd [[au FocusGained,BufEnter * :checktime]]
 
-vim.cmd [[
-set guicursor+=a:blinkwait200-blinkon300
-set guicursor+=n:hor20-Cursor/lCursor
-]]
+vim.cmd [[set guicursor+=a:blinkwait200-blinkon200-blinkoff50]]

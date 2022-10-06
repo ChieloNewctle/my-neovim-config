@@ -15,7 +15,7 @@ endif
 ]]
 
 -- Catppuccin
-vim.g.catppuccin_flavour = 'macchiato'
+vim.g.catppuccin_flavour = 'mocha'
 require('catppuccin').setup {
   term_colors = true,
   integrations = {
@@ -39,18 +39,6 @@ require('catppuccin').setup {
     },
     native_lsp = {
       enabled = true,
-      virtual_text = {
-        errors = { 'italic' },
-        hints = { 'italic' },
-        warnings = { 'italic' },
-        information = { 'italic' },
-      },
-      underlines = {
-        errors = { 'underline' },
-        hints = { 'underline' },
-        warnings = { 'underline' },
-        information = { 'underline' },
-      },
     },
   },
 }
