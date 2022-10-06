@@ -37,11 +37,16 @@ local function exclusive_toggle(t)
   end
 end
 
+local function toggle(t)
+  sidebars[t].toggle()
+end
+
 local function is_current_buffer_sidebar()
   return sidebars[vim.bo.filetype] ~= nil
 end
 
 return {
+  toggle = toggle,
   exclusive_toggle = exclusive_toggle,
   get_current = function() return current end,
   is_current_buffer_sidebar = is_current_buffer_sidebar,

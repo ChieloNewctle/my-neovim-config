@@ -115,12 +115,6 @@ local components = {
 cokeline.setup({
   show_if_buffers_are_at_least = 1,
 
-  buffers = {
-    -- filter_valid = function(buffer) return be~= 'terminal' end,
-    -- filter_visible = function(buffer) return buffer.type ~= 'terminal' end,
-    new_buffers_position = 'next',
-  },
-
   rendering = {
     max_buffer_width = 30,
   },

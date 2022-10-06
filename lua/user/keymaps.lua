@@ -17,7 +17,7 @@ vim.g.maplocalleader = ','
 --   command_mode = 'c',
 
 -- Fast saving
-keymap('n', '<leader>W', ':w!<cr>', opts)
+keymap('n', '<leader>w', ':w!<cr>', opts)
 -- Fast quit
 keymap('n', '<leader>q', ':q<cr>', opts)
 keymap('n', '<leader>Q', ':qa<cr>', opts)
@@ -62,7 +62,11 @@ local function non_sidebar_call(c)
   end
 end
 
-for u, v in pairs({ ['<A-l>'] = 'bnext', ['<A-h>'] = 'bprevious', ['<A-W>'] = 'Bdelete' }) do
+for u, v in pairs({
+  ['<A-l>'] = 'bnext',
+  ['<A-h>'] = 'bprevious',
+  ['<A-W>'] = 'Bdelete',
+}) do
   vim.keymap.set('n', u, non_sidebar_call(v), opts)
 end
 

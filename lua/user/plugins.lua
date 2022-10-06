@@ -44,6 +44,7 @@ return packer.startup(function(use)
   use 'nvim-lua/popup.nvim' -- An implementation of the Popup API from vim in Neovim
   use 'nvim-lua/plenary.nvim' -- Useful lua functions used ny lots of plugins
   use 'moll/vim-bbye'
+  use { 'kaicataldo/material.vim', branch = 'main' }
 
   -- Impatient
   use 'lewis6991/impatient.nvim'
@@ -53,6 +54,8 @@ return packer.startup(function(use)
   -- use 'lunarvim/darkplus.nvim'
   use 'Shatur/neovim-ayu'
   use 'EdenEast/nightfox.nvim'
+  use 'savq/melange'
+  use { 'catppuccin/nvim', as = 'catppuccin' }
 
   -- Lualine
   use 'nvim-lualine/lualine.nvim'

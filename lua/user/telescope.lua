@@ -126,4 +126,4 @@ keymap('n', '<space>lt', ':Telescope lsp_type_definitions<CR>', opts)
 keymap('n', '<space>li', ':Telescope lsp_implementations<CR>', opts)
 keymap('n', '<space>a', ':Telescope aerial<CR>', opts)
 
-keymap('n', '<space>R', ':Telescope resume<CR>', opts)
+keymap('n', '<space>r', ':Telescope resume<CR>', opts)
