@@ -18,6 +18,10 @@ endif
 vim.g.catppuccin_flavour = 'mocha'
 require('catppuccin').setup {
   term_colors = true,
+  styles = {
+    comments = {},
+    conditionals = {},
+  },
   integrations = {
     aerial = true,
     cmp = true,
@@ -39,6 +43,12 @@ require('catppuccin').setup {
     },
     native_lsp = {
       enabled = true,
+      virtual_text = {
+        errors = {},
+        hints = {},
+        warnings = {},
+        information = {},
+      },
     },
   },
 }
