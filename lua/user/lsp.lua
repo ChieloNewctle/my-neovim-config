@@ -102,4 +102,19 @@ mason_lspconfig.setup_handlers {
       },
     }
   end,
+  ['pyright'] = function()
+    lspconfig.pyright.setup {
+      capabilities = capabilities,
+      on_attach = on_attach,
+      settings = {
+        python = {
+          analysis = {
+            autoSearchPaths = true,
+            diagnosticMode = 'workspace',
+            useLibraryCodeForTypes = true
+          },
+        },
+      },
+    }
+  end
 }

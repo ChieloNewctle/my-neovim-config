@@ -15,6 +15,7 @@ lualine.setup {
       'fern',
       'Outline',
       'aerial',
+      'neo-tree',
     },
   },
   sections = {

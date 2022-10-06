@@ -93,15 +93,6 @@ keymap('t', '<A-Down>', '<C-\\><C-N><C-w>j', term_opts)
 keymap('t', '<A-Left>', '<C-\\><C-N><C-w>k', term_opts)
 keymap('t', '<A-Right>', '<C-\\><C-N><C-w>l', term_opts)
 
--- Tree
-vim.keymap.set('n', '<leader>e', function() require('user.sidebar').exclusive_toggle('NvimTree') end, opts)
--- keymap('n', '<leader>e', '<cmd>Fern . -drawer -toggle<cr>', opts)
-
--- keymap('n', '<leader>cq', '<cmd>call setqflist([])<cr>', opts)
-
--- Outline
-vim.keymap.set('n', '<leader>a', function() require('user.sidebar').exclusive_toggle('aerial') end, opts)
-
 -- DAP
 keymap('n', '<leader>dt', '<cmd>require"dap".toggle_breakpoint()<cr>', opts)
 keymap('n', '<leader>dc', '<cmd>require"dap".continue()<cr>', opts)

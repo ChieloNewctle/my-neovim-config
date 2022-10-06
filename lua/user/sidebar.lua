@@ -17,6 +17,14 @@ local sidebars = {
       vim.cmd('AerialClose')
     end,
   },
+  ['neo-tree'] = {
+    toggle = function()
+      vim.cmd('Neotree toggle')
+    end,
+    close = function()
+      vim.cmd('Neotree close')
+    end,
+  },
 }
 
 local function exclusive_toggle(t)
