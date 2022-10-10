@@ -4,9 +4,9 @@ if not status_ok then
 end
 
 local theme = 'auto'
-if vim.cmd('colorscheme') == 'material' then
+if vim.cmd('silent! colorscheme') == 'material' then
   theme = require('material.lualine')
-elseif vim.cmd('colorscheme') == 'catppuccin' then
+elseif vim.cmd('silent! colorscheme') == 'catppuccin' then
   theme = 'catppuccin'
 end
 

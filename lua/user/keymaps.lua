@@ -54,20 +54,31 @@ keymap('n', '<C-Right>', ':vertical resize +2<CR>', opts)
 --   nnoremap <silent><expr> <A-W>
 --     \ &filetype != 'NvimTree' ? ':Bdelete<CR>' : '\<A-W>'
 -- ]], true)
-local function non_sidebar_call(c)
-  return function()
-    if not require('user.sidebar').is_current_buffer_sidebar() then
-      vim.cmd(c)
+local function non_sidebar_call(t, c)
+  if t == 1 then
+    return function()
+      if not require('user.sidebar').is_current_buffer_sidebar() then
+        vim.cmd(c)
+      end
+    end
+  else
+    return function()
+      if not require('user.sidebar').is_current_buffer_sidebar() then
+        vim.api.nvim_feedkeys(
+          vim.api.nvim_replace_termcodes(c, true, true, true),
+          'm', true
+        )
+      end
     end
   end
 end
 
 for u, v in pairs({
-  ['<A-l>'] = 'bnext',
-  ['<A-h>'] = 'bprevious',
-  ['<A-W>'] = 'Bdelete',
+  ['<A-l>'] = { 0, '<Plug>(cokeline-focus-next)' },
+  ['<A-h>'] = { 0, '<Plug>(cokeline-focus-prev)' },
+  ['<A-W>'] = { 1, 'Bdelete' },
 }) do
-  vim.keymap.set('n', u, non_sidebar_call(v), opts)
+  vim.keymap.set('n', u, non_sidebar_call(v[1], v[2]), opts)
 end
 
 -- Insert --

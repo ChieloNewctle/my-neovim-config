@@ -45,6 +45,7 @@ return packer.startup(function(use)
   use 'nvim-lua/plenary.nvim' -- Useful lua functions used ny lots of plugins
   use 'moll/vim-bbye'
   use { 'kaicataldo/material.vim', branch = 'main' }
+  use 'kana/vim-textobj-user'
 
   -- Impatient
   use 'lewis6991/impatient.nvim'
@@ -161,6 +162,12 @@ return packer.startup(function(use)
 
   -- Todo comments
   use { 'folke/todo-comments.nvim', requires = 'nvim-lua/plenary.nvim' }
+
+  -- Iron and Jupytext
+  use {
+    'hkupty/iron.nvim',
+    'goerz/jupytext.vim',
+  }
 
   -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins

@@ -112,8 +112,12 @@ local components = {
   },
 }
 
-cokeline.setup({
+cokeline.setup {
   show_if_buffers_are_at_least = 1,
+
+  buffers = {
+    new_buffers_position = 'next',
+  },
 
   rendering = {
     max_buffer_width = 30,
@@ -156,4 +160,4 @@ cokeline.setup({
     components.unsaved,
     components.space,
   },
-})
+}

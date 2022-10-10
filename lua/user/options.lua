@@ -1,7 +1,7 @@
 local options = {
   backup = false,                          -- creates a backup file
   clipboard = 'unnamedplus',               -- allows neovim to access the system clipboard
-  cmdheight = 2,                           -- more space in the neovim command line for displaying messages
+  cmdheight = 1,                           -- more space in the neovim command line for displaying messages
   completeopt = { 'menuone', 'noselect' }, -- mostly just for cmp
   conceallevel = 0,                        -- so that `` is visible in markdown files
   fileencoding = 'utf-8',                  -- the encoding written to a file
@@ -48,8 +48,8 @@ vim.opt.magic = true
 -- Indenting
 vim.opt.expandtab = true
 vim.opt.smarttab = true
-vim.opt.shiftwidth = 4
-vim.opt.tabstop = 4
+vim.opt.shiftwidth = 2
+vim.opt.tabstop = 2
 
 vim.opt.showbreak = '↪ '
 vim.opt.list = true
